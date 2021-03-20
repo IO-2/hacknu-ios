@@ -73,4 +73,9 @@ final class EventListCollectionViewController : UICollectionViewController, Even
         
         return view
     }
+    
+    override internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) -> () {
+        self.presenter.didSelectItem(at: indexPath)
+    }
+    
 }

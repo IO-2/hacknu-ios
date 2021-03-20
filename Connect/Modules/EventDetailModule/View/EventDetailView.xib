@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="EventDetailView" customModule="Connect" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2Q-Nj-Ivp">
+                    <rect key="frame" x="165" y="26" width="45" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AYg-hV-ulJ">
+                    <rect key="frame" x="0.0" y="63" width="375" height="2"/>
+                    <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="tdg-pt-2s8"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JLP-u9-Is8">
+                    <rect key="frame" x="155.5" y="8" width="64" height="2"/>
+                    <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="64" id="2eo-8k-yLh"/>
+                        <constraint firstAttribute="height" constant="2" id="h5t-2n-wbg"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfh-0C-FJ1">
+                    <rect key="frame" x="323" y="23" width="28" height="27"/>
+                    <state key="normal" image="xmark.circle.fill" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yK1-NW-Tw8">
+                    <rect key="frame" x="32" y="340" width="311" height="44"/>
+                    <color key="backgroundColor" systemColor="systemBlueColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Bdj-UO-Uq8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                    <state key="normal" title="Going">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RCi-GB-TJ1">
+                    <rect key="frame" x="0.0" y="322" width="375" height="2"/>
+                    <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="aiD-nE-lLq"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p74-Q9-y2p">
+                    <rect key="frame" x="0.0" y="65" width="375" height="257"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="lAO-pS-kmR"/>
+            <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="yK1-NW-Tw8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="76v-Im-l7t"/>
+                <constraint firstItem="lAO-pS-kmR" firstAttribute="bottom" secondItem="yK1-NW-Tw8" secondAttribute="bottom" constant="16" id="9YE-ia-BRa"/>
+                <constraint firstItem="RCi-GB-TJ1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Alr-1N-ZBu"/>
+                <constraint firstItem="nfh-0C-FJ1" firstAttribute="centerY" secondItem="d2Q-Nj-Ivp" secondAttribute="centerY" id="Bm9-tl-yw7"/>
+                <constraint firstItem="AYg-hV-ulJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="HSt-WQ-Fqu"/>
+                <constraint firstItem="JLP-u9-Is8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="IB8-te-bf1"/>
+                <constraint firstItem="d2Q-Nj-Ivp" firstAttribute="top" secondItem="JLP-u9-Is8" secondAttribute="bottom" constant="16" id="KVo-xE-q8T"/>
+                <constraint firstAttribute="trailing" secondItem="RCi-GB-TJ1" secondAttribute="trailing" id="KoT-8L-LSe"/>
+                <constraint firstItem="yK1-NW-Tw8" firstAttribute="top" secondItem="RCi-GB-TJ1" secondAttribute="bottom" constant="16" id="R2t-F8-D7P"/>
+                <constraint firstItem="AYg-hV-ulJ" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="X7b-6u-njR"/>
+                <constraint firstAttribute="trailing" secondItem="p74-Q9-y2p" secondAttribute="trailing" id="XXY-5Q-WNd"/>
+                <constraint firstItem="p74-Q9-y2p" firstAttribute="top" secondItem="AYg-hV-ulJ" secondAttribute="bottom" id="abT-JS-mXU"/>
+                <constraint firstAttribute="trailing" secondItem="yK1-NW-Tw8" secondAttribute="trailing" constant="32" id="bUM-XQ-myH"/>
+                <constraint firstAttribute="trailing" secondItem="nfh-0C-FJ1" secondAttribute="trailing" constant="24" id="fbV-VK-cpD"/>
+                <constraint firstItem="JLP-u9-Is8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gaM-G6-KPN"/>
+                <constraint firstItem="d2Q-Nj-Ivp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gn8-bM-9Pe"/>
+                <constraint firstItem="AYg-hV-ulJ" firstAttribute="top" secondItem="d2Q-Nj-Ivp" secondAttribute="bottom" constant="16" id="lsQ-M5-JYk"/>
+                <constraint firstItem="p74-Q9-y2p" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="meZ-Ws-7zE"/>
+                <constraint firstItem="RCi-GB-TJ1" firstAttribute="top" secondItem="p74-Q9-y2p" secondAttribute="bottom" id="vkC-ed-V5c"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="subscribeButton" destination="yK1-NW-Tw8" id="daS-jf-cZM"/>
+                <outlet property="tableView" destination="p74-Q9-y2p" id="H6F-nn-9df"/>
+                <outlet property="titleLabel" destination="d2Q-Nj-Ivp" id="1GP-B2-G2o"/>
+            </connections>
+            <point key="canvasLocation" x="77.599999999999994" y="138.53073463268368"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemFillColor">
+            <color red="0.46274509803921571" green="0.46274509803921571" blue="0.50196078431372548" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

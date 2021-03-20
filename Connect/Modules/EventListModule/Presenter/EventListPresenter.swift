@@ -11,6 +11,8 @@ protocol EventListPresenterProtocol {
     func numberOfSections() -> Int
     func numberOfItems(in section : Int) -> Int
     
+    func didSelectItem(at indexPath : IndexPath) -> ()
+    
     func configure(cell : EventCellProtocol, at indexPath : IndexPath) -> ()
     func configure(header : SectionHeaderReusableView, at indexPath : IndexPath) -> ()
     
@@ -85,6 +87,11 @@ final class EventListPresenter : EventListPresenterProtocol {
         }
         
         return section == 0 ? self.upcomingEvents.count : self.nearbyEvents.count
+    }
+    
+    public func didSelectItem(at indexPath : IndexPath) -> () {
+        let event : Event = indexPath.section == 0 ? self.upcomingEvents[indexPath.item] : self.nearbyEvents[indexPath.item]
+        self.router.presentDetails(of: event)
     }
     
     public func configure(cell: EventCellProtocol, at indexPath: IndexPath) -> () {
