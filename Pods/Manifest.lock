@@ -1,6 +1,7 @@
 PODS:
   - Mapbox-iOS-SDK (6.3.0):
     - MapboxMobileEvents (~> 0.10.4)
+  - MapboxGeocoder.swift (0.14.0)
   - MapboxMobileEvents (0.10.8)
   - QuickLayout (3.0.0)
   - SwiftEntryKit (1.2.7):
@@ -8,21 +9,24 @@ PODS:
 
 DEPENDENCIES:
   - Mapbox-iOS-SDK
+  - MapboxGeocoder.swift
   - SwiftEntryKit
 
 SPEC REPOS:
   trunk:
     - Mapbox-iOS-SDK
+    - MapboxGeocoder.swift
     - MapboxMobileEvents
     - QuickLayout
     - SwiftEntryKit
 
 SPEC CHECKSUMS:
   Mapbox-iOS-SDK: 2563ed87ead6ec08f1c2090873977b8a7be335a8
+  MapboxGeocoder.swift: a288e92ec13fbd65bbdfd7c54c61b0e80d19e734
   MapboxMobileEvents: 36ff53b135aac486eed94b61f813c7967a0c2c6f
   QuickLayout: 07b45a72b10083fee3f095990cfed1c1e7b27f0a
   SwiftEntryKit: 537c92699d6034efb1ef9c32b11e0b37c97aa589
 
-PODFILE CHECKSUM: 39374f83dca5155a5fe824ffaec2f049be1aec83
+PODFILE CHECKSUM: 1dd3016d7e18269b1fa1a32f3c2b25c3569d8368
 
 COCOAPODS: 1.9.3

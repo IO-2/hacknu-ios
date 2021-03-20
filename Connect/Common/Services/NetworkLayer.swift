@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import CoreLocation
+import MapboxGeocoder
 
 protocol NetworkLayerProtocol {
-    func retrieveEvents(completion: @escaping (Result<[Event], NSError>) -> ()) -> ()
+    func retrieveEvents(at coordinate : CLLocationCoordinate2D?, completion: @escaping (Result<[Event], NSError>) -> ()) -> ()
 }
 
 final class NetworkLayer : NetworkLayerProtocol {
@@ -25,11 +27,12 @@ final class NetworkLayer : NetworkLayerProtocol {
         return serializedData
     }
     
-    private func deserialize<T : Codable>(data : Any, as objectType : T.Type) -> T? {
-        guard let data = try? JSONSerialization.data(withJSONObject: data, options: []),
-              let deserializedData = try? JSONDecoder().decode(objectType, from: data)
-        else { return nil }
-        
+    private func serialize(data : [String : Any?]) -> Data? {
+        return try? JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+    }
+    
+    private func deserialize<T : Codable>(data : Data, as objectType : T.Type) -> T? {
+        guard let deserializedData = try? JSONDecoder().decode(objectType, from: data) else { return nil }
         return deserializedData
     }
     
@@ -42,14 +45,38 @@ final class NetworkLayer : NetworkLayerProtocol {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     
-    public func retrieveEvents(completion: @escaping (Result<[Event], NSError>) -> ()) -> () {
+    private func createDataTask(with request : URLRequest, completion: @escaping (Data?, URLResponse?, Error?) -> ()) -> () {
+        URLSession.shared.dataTask(with: request, completionHandler: completion).resume()
+    }
+    
+    public func retrieveEvents(at coordinate : CLLocationCoordinate2D?, completion: @escaping (Result<[Event], NSError>) -> ()) -> () {
         let stringURL = self.baseURL + "events/get"
-        let url = URL(string: stringURL)
         
-        self.createDataTask(with: url) { data, response, error in
-            if let data = data {
-                guard let events = self.deserialize(data: data, as: [Event].self) else { return }
-                completion(.success(events))
+        guard let url = URL(string: stringURL) else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        LocationLayer.shared.city(at: coordinate) { result in
+            switch result {
+                case .success(let city):
+                    let requestBody : [String : Any?] = ["city": city,
+                                                         "query": nil,
+                                                         "dateAscending": true,
+                                                         "eventLocation": nil,
+                                                         "tags": nil]
+                    request.httpBody = self.serialize(data: requestBody)
+                    
+                    self.createDataTask(with: request) { data, response, error in
+                        if let data = data {
+                            guard let events = self.deserialize(data: data, as: [Event].self) else { return }
+                            completion(.success(events))
+                        }
+                    }
+                case .failure(let error): completion(.failure(error))
             }
         }
     }

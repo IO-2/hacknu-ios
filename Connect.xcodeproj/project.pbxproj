@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		751BC59470830AE9C6DAB79B /* Pods_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A6E26C08F5D019575FC5D3 /* Pods_Connect.framework */; };
+		9253D52B260655100076491E /* LocationLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253D52A260655100076491E /* LocationLayer.swift */; };
 		92AE6FAA2606158A003677E2 /* SectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE6FA92606158A003677E2 /* SectionLayout.swift */; };
 		92AE6FB026061A67003677E2 /* UpcomingEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AE6FAF26061A67003677E2 /* UpcomingEventCell.xib */; };
 		92AE6FB526061BA7003677E2 /* NearbyEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AE6FB426061BA7003677E2 /* NearbyEventCell.xib */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		59A6E26C08F5D019575FC5D3 /* Pods_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83C4FD2E5AA7C11E61E24C9C /* Pods-Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect.debug.xcconfig"; path = "Target Support Files/Pods-Connect/Pods-Connect.debug.xcconfig"; sourceTree = "<group>"; };
+		9253D52A260655100076491E /* LocationLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationLayer.swift; sourceTree = "<group>"; };
 		92AE6FA92606158A003677E2 /* SectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionLayout.swift; sourceTree = "<group>"; };
 		92AE6FAF26061A67003677E2 /* UpcomingEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpcomingEventCell.xib; sourceTree = "<group>"; };
 		92AE6FB426061BA7003677E2 /* NearbyEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearbyEventCell.xib; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				92E18FFF26064D9900E136ED /* NetworkLayer.swift */,
+				9253D52A260655100076491E /* LocationLayer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				92E1900426064DD700E136ED /* Event.swift in Sources */,
 				92E18FE72606297E00E136ED /* EventListBuilder.swift in Sources */,
 				92E18FFB260644D600E136ED /* EventMapViewController.swift in Sources */,
+				9253D52B260655100076491E /* LocationLayer.swift in Sources */,
 				92D15F9E26061214006A1A0A /* EventListPresenter.swift in Sources */,
 				92D15F7926060C6C006A1A0A /* SceneDelegate.swift in Sources */,
 				92AE6FB926061D6B003677E2 /* EventCell.swift in Sources */,

@@ -20,11 +20,11 @@ final class Event : Codable, Equatable {
     public let city : String
     public let description : String
     
-    public let longitude : Int
-    public let latitude : Int
+    public let longitude : Double
+    public let latitude : Double
     
     public let organizerEmail : String
-    public let tags : [Int]
+    public let tags : [Tag]
     
     public var date : Date {
         return .init(timeIntervalSince1970: TimeInterval(self.unix))

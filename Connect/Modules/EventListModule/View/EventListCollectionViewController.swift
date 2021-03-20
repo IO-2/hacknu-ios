@@ -38,7 +38,9 @@ final class EventListCollectionViewController : UICollectionViewController, Even
     
     override internal func viewDidLoad() -> () {
         super.viewDidLoad()
+        
         self.configure()
+        self.presenter.viewDidLoad()
     }
     
     override internal func numberOfSections(in collectionView : UICollectionView) -> Int {

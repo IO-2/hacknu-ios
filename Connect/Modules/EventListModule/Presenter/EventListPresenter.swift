@@ -37,7 +37,7 @@ final class EventListPresenter : EventListPresenterProtocol {
             return 8
         }
         
-        return 8
+        return self.dataSource.count
     }
     
     public func configure(cell: EventCellProtocol, at indexPath: IndexPath) -> () {
@@ -51,11 +51,9 @@ final class EventListPresenter : EventListPresenterProtocol {
     public func viewDidLoad() -> () {
         self.isLoading = true
         
-        NetworkLayer.shared.retrieveEvents { result in
-            self.isLoading = false
-            
+        NetworkLayer.shared.retrieveEvents(at: .init(latitude: 55.75, longitude: 37.6)) { result in
             switch result {
-                case .success(let events): self.dataSource = events
+                case .success(let events): print(events)
                 case .failure(let error): print(error)
             }
         }
