@@ -160,7 +160,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="QgR-xI-upc" kind="relationship" relationship="viewControllers" id="Gub-2W-Rv2"/>
-                        <segue destination="Q0b-Bd-DDR" kind="relationship" relationship="viewControllers" id="1wd-4k-ReP"/>
+                        <segue destination="Q0b-Bd-DDR" kind="relationship" relationship="viewControllers" destinationCreationSelector="buildEventMap:" id="1wd-4k-ReP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uxe-yI-kGv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

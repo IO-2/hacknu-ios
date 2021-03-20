@@ -13,4 +13,8 @@ final class BuilderViewController : UIViewController {
         return EventListBuilder.build(coder)
     }
     
+    @IBSegueAction private func buildEventMap(_ coder : NSCoder) -> EventMapViewController {
+        return EventMapBuilder.build(coder)
+    }
+    
 }
