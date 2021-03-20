@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		751BC59470830AE9C6DAB79B /* Pods_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A6E26C08F5D019575FC5D3 /* Pods_Connect.framework */; };
 		9253D52B260655100076491E /* LocationLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253D52A260655100076491E /* LocationLayer.swift */; };
+		9253D52E2606690C0076491E /* EventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253D52D2606690C0076491E /* EventRequest.swift */; };
+		9253D53B260672A60076491E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9253D53A260672A60076491E /* Date.swift */; };
 		92AE6FAA2606158A003677E2 /* SectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE6FA92606158A003677E2 /* SectionLayout.swift */; };
 		92AE6FB026061A67003677E2 /* UpcomingEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AE6FAF26061A67003677E2 /* UpcomingEventCell.xib */; };
 		92AE6FB526061BA7003677E2 /* NearbyEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AE6FB426061BA7003677E2 /* NearbyEventCell.xib */; };
 		92AE6FB926061D6B003677E2 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE6FB826061D6B003677E2 /* EventCell.swift */; };
-		92AE6FBD26061E36003677E2 /* EventCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE6FBC26061E36003677E2 /* EventCellPresenter.swift */; };
-		92AE6FC226061F7F003677E2 /* EventCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE6FC126061F7F003677E2 /* EventCellBuilder.swift */; };
 		92D15F7726060C6C006A1A0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D15F7626060C6C006A1A0A /* AppDelegate.swift */; };
 		92D15F7926060C6C006A1A0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D15F7826060C6C006A1A0A /* SceneDelegate.swift */; };
 		92D15F7B26060C6C006A1A0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D15F7A26060C6C006A1A0A /* ViewController.swift */; };
@@ -37,12 +37,12 @@
 		59A6E26C08F5D019575FC5D3 /* Pods_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83C4FD2E5AA7C11E61E24C9C /* Pods-Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect.debug.xcconfig"; path = "Target Support Files/Pods-Connect/Pods-Connect.debug.xcconfig"; sourceTree = "<group>"; };
 		9253D52A260655100076491E /* LocationLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationLayer.swift; sourceTree = "<group>"; };
+		9253D52D2606690C0076491E /* EventRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRequest.swift; sourceTree = "<group>"; };
+		9253D53A260672A60076491E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		92AE6FA92606158A003677E2 /* SectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionLayout.swift; sourceTree = "<group>"; };
 		92AE6FAF26061A67003677E2 /* UpcomingEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpcomingEventCell.xib; sourceTree = "<group>"; };
 		92AE6FB426061BA7003677E2 /* NearbyEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearbyEventCell.xib; sourceTree = "<group>"; };
 		92AE6FB826061D6B003677E2 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
-		92AE6FBC26061E36003677E2 /* EventCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellPresenter.swift; sourceTree = "<group>"; };
-		92AE6FC126061F7F003677E2 /* EventCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellBuilder.swift; sourceTree = "<group>"; };
 		92D15F7326060C6C006A1A0A /* Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D15F7626060C6C006A1A0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92D15F7826060C6C006A1A0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +93,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9253D5392606729D0076491E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9253D53A260672A60076491E /* Date.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		92AE6FA826061572003677E2 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,27 +127,9 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		92AE6FBB26061E1F003677E2 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				92AE6FBC26061E36003677E2 /* EventCellPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		92AE6FC026061F6D003677E2 /* Builder */ = {
-			isa = PBXGroup;
-			children = (
-				92AE6FC126061F7F003677E2 /* EventCellBuilder.swift */,
-			);
-			path = Builder;
-			sourceTree = "<group>";
-		};
 		92AE6FC92606230C003677E2 /* EventCellModule */ = {
 			isa = PBXGroup;
 			children = (
-				92AE6FC026061F6D003677E2 /* Builder */,
-				92AE6FBB26061E1F003677E2 /* Presenter */,
 				92AE6FB326061B99003677E2 /* View */,
 			);
 			path = EventCellModule;
@@ -232,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				92E1900326064DD700E136ED /* Event.swift */,
+				9253D52D2606690C0076491E /* EventRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -280,6 +271,7 @@
 		92E18FFD26064D8A00E136ED /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9253D5392606729D0076491E /* Extension */,
 				92E18FFE26064D8F00E136ED /* Services */,
 			);
 			path = Common;
@@ -411,12 +403,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92AE6FBD26061E36003677E2 /* EventCellPresenter.swift in Sources */,
 				92D15F7B26060C6C006A1A0A /* ViewController.swift in Sources */,
 				92AE6FAA2606158A003677E2 /* SectionLayout.swift in Sources */,
 				92E1900026064D9900E136ED /* NetworkLayer.swift in Sources */,
+				9253D52E2606690C0076491E /* EventRequest.swift in Sources */,
 				92D15FA52606124E006A1A0A /* EventListRouter.swift in Sources */,
 				92E18FE32606294300E136ED /* BuilderViewController.swift in Sources */,
+				9253D53B260672A60076491E /* Date.swift in Sources */,
 				92E18FF0260631E000E136ED /* SectionHeaderReusableView.swift in Sources */,
 				92D15F7726060C6C006A1A0A /* AppDelegate.swift in Sources */,
 				92E1900426064DD700E136ED /* Event.swift in Sources */,
@@ -426,7 +419,6 @@
 				92D15F9E26061214006A1A0A /* EventListPresenter.swift in Sources */,
 				92D15F7926060C6C006A1A0A /* SceneDelegate.swift in Sources */,
 				92AE6FB926061D6B003677E2 /* EventCell.swift in Sources */,
-				92AE6FC226061F7F003677E2 /* EventCellBuilder.swift in Sources */,
 				92D15F98260611CD006A1A0A /* EventListCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

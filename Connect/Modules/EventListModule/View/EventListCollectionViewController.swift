@@ -8,7 +8,7 @@
 import UIKit
 
 protocol EventListCollectionViewControllerProtocol : class {
-    
+    func reloadData() -> ()
 }
 
 final class EventListCollectionViewController : UICollectionViewController, EventListCollectionViewControllerProtocol {
@@ -28,12 +28,16 @@ final class EventListCollectionViewController : UICollectionViewController, Even
     private func configure() -> () {
         self.collectionView.collectionViewLayout = self.buildLayout()
         
-        self.collectionView.register(EventCellBuilder.nib(for: .upcoming), forCellWithReuseIdentifier: "upcomingCell")
-        self.collectionView.register(EventCellBuilder.nib(for: .nearby), forCellWithReuseIdentifier: "nearbyCell")
+        self.collectionView.register(UINib(nibName: "UpcomingEventCell", bundle: nil), forCellWithReuseIdentifier: "upcomingCell")
+        self.collectionView.register(UINib(nibName: "NearbyEventCell", bundle: nil), forCellWithReuseIdentifier: "nearbyCell")
         
         self.collectionView.register(UINib(nibName: "SectionHeaderReusableView", bundle: nil),
                                      forSupplementaryViewOfKind: SectionHeaderReusableView.reuseIdentifier,
                                      withReuseIdentifier: SectionHeaderReusableView.reuseIdentifier)
+    }
+    
+    public func reloadData() -> () {
+        UIView.transition(with: self.collectionView, duration: 0.2, options: .transitionCrossDissolve,animations: { self.collectionView.reloadData()})
     }
     
     override internal func viewDidLoad() -> () {
@@ -53,7 +57,9 @@ final class EventListCollectionViewController : UICollectionViewController, Even
     
     override internal func collectionView(_ collectionView : UICollectionView, cellForItemAt indexPath : IndexPath) -> UICollectionViewCell {
         let reuseIdentifier = indexPath.section == 0 ? "upcomingCell" : "nearbyCell"
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EventCell
+        
+        self.presenter.configure(cell: cell, at: indexPath)
         
         return cell
     }

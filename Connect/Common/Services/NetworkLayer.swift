@@ -10,7 +10,7 @@ import CoreLocation
 import MapboxGeocoder
 
 protocol NetworkLayerProtocol {
-    func retrieveEvents(at coordinate : CLLocationCoordinate2D?, completion: @escaping (Result<[Event], NSError>) -> ()) -> ()
+    func retrieveEvents(with body : EventRequest, completion: @escaping (Result<[Event], NSError>) -> ())
 }
 
 final class NetworkLayer : NetworkLayerProtocol {
@@ -19,12 +19,9 @@ final class NetworkLayer : NetworkLayerProtocol {
     
     private let baseURL : String = "http://146.66.200.213:8080/"
     
-    private func serialize<T : Codable>(data : T) -> Any? {
-        guard let data = try? JSONEncoder().encode(data),
-              let serializedData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
-        else { return nil }
-        
-        return serializedData
+    private func serialize<T : Codable>(data : T) -> Data? {
+        guard let data = try? JSONEncoder().encode(data) else { return nil }
+        return data
     }
     
     private func serialize(data : [String : Any?]) -> Data? {
@@ -49,10 +46,33 @@ final class NetworkLayer : NetworkLayerProtocol {
         URLSession.shared.dataTask(with: request, completionHandler: completion).resume()
     }
     
-    public func retrieveEvents(at coordinate : CLLocationCoordinate2D?, completion: @escaping (Result<[Event], NSError>) -> ()) -> () {
-        let stringURL = self.baseURL + "events/get"
+    private func url(with route : String) -> URL? {
+        return URL(string: self.baseURL + route)
+    }
+    
+    public func retrieveEvents(with body : EventRequest, completion: @escaping (Result<[Event], NSError>) -> ()) {
+        guard let url = self.url(with: "events/get"),
+              let requestBody = self.serialize(data: body)
+        else { return }
         
-        guard let url = URL(string: stringURL) else { return }
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "POST"
+        request.httpBody = requestBody
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        self.createDataTask(with: request) { data, response, error in
+            if let data = data {
+                guard let events = self.deserialize(data: data, as: [Event].self) else { return }
+                completion(.success(events))
+            }
+        }
+    }
+    
+    public func retrieveEvents(at coordinate : CLLocationCoordinate2D?, completion: @escaping (Result<[Event], NSError>) -> ()) -> () {
+        guard let url = self.url(with: "events/get") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"

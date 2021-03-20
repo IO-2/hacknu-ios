@@ -11,6 +11,7 @@ import CoreLocation
 protocol LocationLayerProtocol {
     var current : CLLocationCoordinate2D { get }
     
+    func address(at coordinate : CLLocationCoordinate2D, completion: @escaping (Result<String, NSError>) -> ()) -> ()
     func city(at coordinate : CLLocationCoordinate2D?, completion: @escaping (Result<String, NSError>) -> ()) -> ()
 }
 
@@ -22,6 +23,21 @@ final class LocationLayer : LocationLayerProtocol {
     
     public var current: CLLocationCoordinate2D {
         return self.locationManager.location?.coordinate ?? .init()
+    }
+    
+    public func address(at coordinate : CLLocationCoordinate2D, completion: @escaping (Result<String, NSError>) -> ()) -> () {
+        let options = ReverseGeocodeOptions(coordinate: coordinate)
+        
+        Geocoder.shared.geocode(options) { placemarks, attribution, error in
+            if let error = error {
+                return completion(.failure(error))
+            }
+            
+            guard let placemark = placemarks?.first else { return }
+            let address = placemark.name
+            
+            completion(.success(address))
+        }
     }
     
     public func city(at coordinate : CLLocationCoordinate2D?, completion: @escaping (Result<String, NSError>) -> ()) -> () {
