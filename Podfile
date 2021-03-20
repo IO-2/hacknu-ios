@@ -4,5 +4,6 @@ target 'Connect' do
   use_frameworks!
 
   pod 'SwiftEntryKit'
+  pod 'Mapbox-iOS-SDK'
   
 end
