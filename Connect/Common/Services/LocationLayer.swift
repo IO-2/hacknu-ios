@@ -5,7 +5,6 @@
 //  Created by Tamerlan Satualdypov on 20.03.2021.
 //
 
-import MapboxGeocoder
 import CoreLocation
 
 protocol LocationLayerProtocol {
@@ -26,32 +25,36 @@ final class LocationLayer : LocationLayerProtocol {
     }
     
     public func address(at coordinate : CLLocationCoordinate2D, completion: @escaping (Result<String, NSError>) -> ()) -> () {
-        let options = ReverseGeocodeOptions(coordinate: coordinate)
+        let lat = coordinate.latitude
+        let lon = coordinate.longitude
         
-        Geocoder.shared.geocode(options) { placemarks, attribution, error in
-            if let error = error {
-                return completion(.failure(error))
+        let location = CLLocation(latitude: lat, longitude: lon)
+        
+        CLGeocoder().reverseGeocodeLocation(location, preferredLocale: .init(identifier: "en-EN")) { placemarks, error in
+            if let placemarks = placemarks {
+                for placemark in placemarks {
+                    if let address = placemark.name {
+                        completion(.success(address))
+                    }
+                }
             }
-            
-            guard let placemark = placemarks?.first else { return }
-            let address = placemark.name
-            
-            completion(.success(address))
         }
     }
     
     public func city(at coordinate : CLLocationCoordinate2D?, completion: @escaping (Result<String, NSError>) -> ()) -> () {
-        let options = ReverseGeocodeOptions(coordinate: coordinate ?? self.locationManager.location?.coordinate ?? .init())
+        let lat = coordinate?.latitude ?? self.locationManager.location?.coordinate.latitude ?? 0.0
+        let lon = coordinate?.longitude ?? self.locationManager.location?.coordinate.longitude ?? 0.0
         
-        Geocoder.shared.geocode(options) { placemarks, attribution, error in
-            if let error = error {
-                return completion(.failure(error))
+        let location = CLLocation(latitude: lat, longitude: lon)
+        
+        CLGeocoder().reverseGeocodeLocation(location, preferredLocale: .init(identifier: "en-EN")) { placemarks, error in
+            if let placemarks = placemarks {
+                for placemark in placemarks {
+                    if let city = placemark.locality {
+                        completion(.success(city))
+                    }
+                }
             }
-            
-            guard let placemark = placemarks?.first else { return }
-            let city = placemark.administrativeRegion?.name ?? placemark.name
-            
-            completion(.success(city))
         }
     }
     
