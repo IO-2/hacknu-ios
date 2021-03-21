@@ -20,10 +20,6 @@ final class EventMapViewController : UIViewController, EventMapViewControllerPro
     
     public var presenter : EventMapPresenterProtocol!
     
-    @IBAction private func searchButtonPressed(_ sender : UIButton) -> () {
-        
-    }
-    
     private func checkMapStyle() -> () {
         switch self.traitCollection.userInterfaceStyle {
             case .dark: self.mapView.styleURL = MGLStyle.darkStyleURL
@@ -42,8 +38,10 @@ final class EventMapViewController : UIViewController, EventMapViewControllerPro
         }
         
         self.mapView.addAnnotation(annotation)
-        
-        print(self.mapView.annotations)
+    }
+    
+    override internal func prepare(for segue: UIStoryboardSegue, sender: Any?) -> () {
+        self.presenter.prepare(for: segue)
     }
     
     override internal func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) -> () {

@@ -17,6 +17,11 @@ final class EventAnnotationView : MGLAnnotationView {
     override internal func layoutSubviews() {
         super.layoutSubviews()
         
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = .zero
+        self.layer.shadowRadius = 8
+        self.layer.shadowOpacity = 0.4
+        
         self.layer.cornerRadius = self.bounds.width / 2
         
         self.layer.borderWidth = 2

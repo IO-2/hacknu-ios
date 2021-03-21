@@ -5,12 +5,14 @@
 //  Created by Tamerlan Satualdypov on 21.03.2021.
 //
 
-import Foundation
+import UIKit
 import Mapbox
 
 protocol EventMapPresenterProtocol {
     func didSelect(annotation: MGLAnnotationView) -> ()
     func regionDidChange(mapView : MGLMapView) -> ()
+    
+    func prepare(for segue : UIStoryboardSegue) -> ()
     
     init(view : EventMapViewControllerProtocol, router : EventMapRouterProtocol)
 }
@@ -22,22 +24,29 @@ final class EventMapPresenter : EventMapPresenterProtocol {
     
     private var events : [Event] = .init() {
         didSet {
-            DispatchQueue.main.async {
-                for event in self.events {
-                    let point = MGLPointAnnotation()
-                    
-                    point.coordinate = .init(latitude: event.latitude, longitude: event.longitude)
-                    point.title = event.name
-                    point.subtitle = event.tags.first!.text
-                    
-                    self.view?.add(annotation: point)
-                }
+            for event in self.events {
+                let point = MGLPointAnnotation()
+                
+                point.coordinate = .init(latitude: event.latitude, longitude: event.longitude)
+                point.title = event.name
+                point.subtitle = event.tags.first!.text
+                
+                self.view?.add(annotation: point)
             }
         }
     }
     
     public func didSelect(annotation: MGLAnnotationView) -> () {
+        guard let lat = annotation.annotation?.coordinate.latitude,
+              let lon = annotation.annotation?.coordinate.longitude
+        else { return }
         
+        for event in self.events {
+            if event.latitude == lat && event.longitude == lon {
+                self.router.presentDetails(of: event)
+                break
+            }
+        }
     }
     
     public func regionDidChange(mapView: MGLMapView) -> () {
@@ -55,6 +64,10 @@ final class EventMapPresenter : EventMapPresenterProtocol {
                 case .failure(let error): print(error)
             }
         }
+    }
+    
+    public func prepare(for segue: UIStoryboardSegue) -> () {
+        self.router.prepare(for: segue)
     }
     
     init(view: EventMapViewControllerProtocol, router: EventMapRouterProtocol) {

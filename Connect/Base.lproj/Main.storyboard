@@ -199,7 +199,6 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                 </state>
                                 <connections>
-                                    <action selector="searchButtonPressed:" destination="Q0b-Bd-DDR" eventType="touchUpInside" id="xCK-rv-Hjv"/>
                                     <segue destination="jnV-X7-KKo" kind="presentation" identifier="showSearch" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="vTA-5P-1VP"/>
                                 </connections>
                             </button>
@@ -293,7 +292,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eOv-pV-eSZ"/>
+        <segue reference="vTA-5P-1VP"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
