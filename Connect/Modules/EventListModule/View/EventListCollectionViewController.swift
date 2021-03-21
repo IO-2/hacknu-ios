@@ -40,6 +40,10 @@ final class EventListCollectionViewController : UICollectionViewController, Even
         UIView.transition(with: self.collectionView, duration: 0.2, options: .transitionCrossDissolve,animations: { self.collectionView.reloadData()})
     }
     
+    override internal func prepare(for segue: UIStoryboardSegue, sender: Any?) -> () {
+        self.presenter.prepare(for: segue)
+    }
+    
     override internal func viewDidLoad() -> () {
         super.viewDidLoad()
         

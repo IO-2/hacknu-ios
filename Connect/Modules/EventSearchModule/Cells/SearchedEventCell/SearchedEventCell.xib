@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="wMS-sB-0aY" customClass="SearchedEventCell" customModule="Connect" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wMS-sB-0aY" id="t5W-Dz-rxA">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8K-7R-M5h">
+                        <rect key="frame" x="16" y="8" width="382" height="80"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mo5-eb-JZy">
+                                <rect key="frame" x="20" y="4.5" width="317.5" height="71.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8k2-lK-igd">
+                                        <rect key="frame" x="0.0" y="0.0" width="317.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zBN-Vb-fL6">
+                                        <rect key="frame" x="0.0" y="28.5" width="317.5" height="43"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="48Q-Yi-DTQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="317.5" height="19.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="calendar.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aO1-YR-HFy">
+                                                        <rect key="frame" x="0.0" y="0.5" width="16" height="18.5"/>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="14"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cae-wM-GKF">
+                                                        <rect key="frame" x="20" y="0.0" width="297.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="dTc-fz-kco">
+                                                <rect key="frame" x="0.0" y="23.5" width="317.5" height="19.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="mappin.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kCX-yN-pTV">
+                                                        <rect key="frame" x="0.0" y="0.5" width="16" height="18.5"/>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="14"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AW-FC-DFU">
+                                                        <rect key="frame" x="20" y="0.0" width="297.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Css-9m-VTo">
+                                <rect key="frame" x="353.5" y="32" width="12.5" height="16.5"/>
+                                <color key="tintColor" systemColor="secondaryLabelColor"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mo5-eb-JZy" firstAttribute="leading" secondItem="d8K-7R-M5h" secondAttribute="leading" constant="20" id="8HO-4C-Jja"/>
+                            <constraint firstItem="Css-9m-VTo" firstAttribute="leading" secondItem="mo5-eb-JZy" secondAttribute="trailing" constant="16" id="9M4-00-7IT"/>
+                            <constraint firstItem="mo5-eb-JZy" firstAttribute="centerY" secondItem="d8K-7R-M5h" secondAttribute="centerY" id="Gwn-cF-P9u"/>
+                            <constraint firstItem="Css-9m-VTo" firstAttribute="centerY" secondItem="d8K-7R-M5h" secondAttribute="centerY" id="i99-wU-Wbw"/>
+                            <constraint firstAttribute="trailing" secondItem="Css-9m-VTo" secondAttribute="trailing" constant="16" id="rp5-QO-j7t"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="d8K-7R-M5h" secondAttribute="bottom" constant="8" id="0gi-C9-WbL"/>
+                    <constraint firstItem="d8K-7R-M5h" firstAttribute="top" secondItem="t5W-Dz-rxA" secondAttribute="top" constant="8" id="3oB-Lg-Z3T"/>
+                    <constraint firstAttribute="trailing" secondItem="d8K-7R-M5h" secondAttribute="trailing" constant="16" id="Oiw-ZP-NIT"/>
+                    <constraint firstItem="d8K-7R-M5h" firstAttribute="leading" secondItem="t5W-Dz-rxA" secondAttribute="leading" constant="16" id="bXk-fJ-u5M"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="eventAddressLabel" destination="6AW-FC-DFU" id="oTq-if-bie"/>
+                <outlet property="eventDateLabel" destination="Cae-wM-GKF" id="rMH-nw-23y"/>
+                <outlet property="eventNameLabel" destination="8k2-lK-igd" id="Yhs-EW-0Bz"/>
+                <outlet property="mainView" destination="d8K-7R-M5h" id="7lh-bo-Q2q"/>
+            </connections>
+            <point key="canvasLocation" x="114" y="9"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="calendar.circle" catalog="system" width="128" height="121"/>
+        <image name="chevron.forward" catalog="system" width="96" height="128"/>
+        <image name="mappin.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

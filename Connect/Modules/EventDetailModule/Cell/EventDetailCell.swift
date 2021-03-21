@@ -36,4 +36,10 @@ final class EventDetailCell : UITableViewCell, EventDetailCellProtocol {
     public func set(descriptionColor : UIColor) -> () {
         self.descriptionLabel.textColor = descriptionColor
     }
+    
+    override internal func prepareForReuse() -> () {
+        super.prepareForReuse()
+        
+        self.descriptionLabel.textColor = .label
+    }
 }

@@ -7,9 +7,13 @@
 
 import Foundation
 
-final class Tag : Codable {
+final class Tag : Codable, Equatable {
     public let id : Int
     public let text : String
+    
+    public static func == (lhs : Tag, rhs : Tag) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 final class Event : Codable, Equatable {

@@ -5,7 +5,7 @@
 //  Created by Tamerlan Satualdypov on 20.03.2021.
 //
 
-import Foundation
+import UIKit
 
 protocol EventListPresenterProtocol {
     func numberOfSections() -> Int
@@ -15,6 +15,8 @@ protocol EventListPresenterProtocol {
     
     func configure(cell : EventCellProtocol, at indexPath : IndexPath) -> ()
     func configure(header : SectionHeaderReusableView, at indexPath : IndexPath) -> ()
+    
+    func prepare(for segue : UIStoryboardSegue) -> ()
     
     func viewDidLoad() -> ()
     
@@ -81,7 +83,7 @@ final class EventListPresenter : EventListPresenterProtocol {
         return 2
     }
     
-    public func numberOfItems(in section: Int) -> Int {
+    public func numberOfItems(in section : Int) -> Int {
         if self.isLoading {
             return 8
         }
@@ -94,7 +96,7 @@ final class EventListPresenter : EventListPresenterProtocol {
         self.router.presentDetails(of: event)
     }
     
-    public func configure(cell: EventCellProtocol, at indexPath: IndexPath) -> () {
+    public func configure(cell : EventCellProtocol, at indexPath : IndexPath) -> () {
         if self.isLoading { return }
         
         let event : Event = indexPath.section == 0 ? self.upcomingEvents[indexPath.item] : self.nearbyEvents[indexPath.item]
@@ -110,8 +112,12 @@ final class EventListPresenter : EventListPresenterProtocol {
         }
     }
     
-    public func configure(header: SectionHeaderReusableView, at indexPath: IndexPath) -> () {
+    public func configure(header : SectionHeaderReusableView, at indexPath : IndexPath) -> () {
         header.set(header: indexPath.section == 0 ? "Upcoming" : "Nearby")
+    }
+    
+    public func prepare(for segue : UIStoryboardSegue) -> () {
+        self.router.prepare(for: segue)
     }
     
     public func viewDidLoad() -> () {

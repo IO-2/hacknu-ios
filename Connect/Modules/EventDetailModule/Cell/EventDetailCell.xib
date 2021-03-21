@@ -17,14 +17,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="er9-FI-ruI">
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="er9-FI-ruI">
                         <rect key="frame" x="24" y="8" width="366" height="57"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="calendar.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JDP-1H-BdJ">
-                                <rect key="frame" x="0.0" y="19" width="20" height="19"/>
+                                <rect key="frame" x="0.0" y="0.5" width="20" height="19"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9DP-Yz-hbX">
-                                <rect key="frame" x="36" y="6.5" width="330" height="44"/>
+                                <rect key="frame" x="36" y="0.0" width="330" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPA-7c-3ts">
                                         <rect key="frame" x="0.0" y="0.0" width="330" height="19.5"/>

@@ -10,6 +10,8 @@ import CoreLocation
 import MapboxGeocoder
 
 protocol NetworkLayerProtocol {
+    func retrieveCities(completion: @escaping (Result<[String], NSError>) -> ()) -> ()
+    func retrieveTags(completion: @escaping (Result<[Tag], NSError>) -> ()) -> () 
     func retrieveEvents(with body : EventRequest, completion: @escaping (Result<[Event], NSError>) -> ())
 }
 
@@ -50,6 +52,30 @@ final class NetworkLayer : NetworkLayerProtocol {
         return URL(string: self.baseURL + route)
     }
     
+    public func retrieveCities(completion: @escaping (Result<[String], NSError>) -> ()) -> () {
+        self.createDataTask(with: self.url(with: "events/cities/get")) { data, response, error in
+            if let data = data {
+                guard let cities = self.deserialize(data: data, as: [String].self) else { return }
+                
+                DispatchQueue.main.async {
+                    completion(.success(cities))
+                }
+            }
+        }
+    }
+    
+    public func retrieveTags(completion: @escaping (Result<[Tag], NSError>) -> ()) -> () {
+        self.createDataTask(with: self.url(with: "tags/get")) { data, response, error in
+            if let data = data {
+                guard let tags = self.deserialize(data: data, as: [Tag].self) else { return }
+                
+                DispatchQueue.main.async {
+                    completion(.success(tags))
+                }
+            }
+        }
+    }
+    
     public func retrieveEvents(with body : EventRequest, completion: @escaping (Result<[Event], NSError>) -> ()) {
         guard let url = self.url(with: "events/get"),
               let requestBody = self.serialize(data: body)
@@ -66,37 +92,10 @@ final class NetworkLayer : NetworkLayerProtocol {
         self.createDataTask(with: request) { data, response, error in
             if let data = data {
                 guard let events = self.deserialize(data: data, as: [Event].self) else { return }
-                completion(.success(events))
-            }
-        }
-    }
-    
-    public func retrieveEvents(at coordinate : CLLocationCoordinate2D?, completion: @escaping (Result<[Event], NSError>) -> ()) -> () {
-        guard let url = self.url(with: "events/get") else { return }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        LocationLayer.shared.city(at: coordinate) { result in
-            switch result {
-                case .success(let city):
-                    let requestBody : [String : Any?] = ["city": city,
-                                                         "query": nil,
-                                                         "dateAscending": true,
-                                                         "eventLocation": nil,
-                                                         "tags": nil]
-                    request.httpBody = self.serialize(data: requestBody)
-                    
-                    self.createDataTask(with: request) { data, response, error in
-                        if let data = data {
-                            guard let events = self.deserialize(data: data, as: [Event].self) else { return }
-                            completion(.success(events))
-                        }
-                    }
-                case .failure(let error): completion(.failure(error))
+                
+                DispatchQueue.main.async {
+                    completion(.success(events))
+                }
             }
         }
     }
