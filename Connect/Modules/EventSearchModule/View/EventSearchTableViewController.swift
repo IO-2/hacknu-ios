@@ -23,8 +23,13 @@ final class EventSearchTableViewController : UITableViewController, EventSearchT
     
     public var presenter : EventSearchPresenterProtocol!
     
+    @IBAction private func closeButtonPressed(_ sender : UIBarButtonItem) -> () {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction private func cityButtonPressed(_ sender : UIBarButtonItem) -> () {
-        
+        self.presenter.cityButtonPressed()
+        self.forceEndEditing()
     }
     
     @objc private func forceEndEditing() -> () {

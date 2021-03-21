@@ -53,7 +53,7 @@ final class NetworkLayer : NetworkLayerProtocol {
     }
     
     public func retrieveCities(completion: @escaping (Result<[String], NSError>) -> ()) -> () {
-        self.createDataTask(with: self.url(with: "events/cities/get")) { data, response, error in
+        self.createDataTask(with: self.url(with: "events/get/cities")) { data, response, error in
             if let data = data {
                 guard let cities = self.deserialize(data: data, as: [String].self) else { return }
                 

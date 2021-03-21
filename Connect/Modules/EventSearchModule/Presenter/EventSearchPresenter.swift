@@ -8,6 +8,8 @@
 import Foundation
 
 protocol EventSearchPresenterProtocol {
+    func cityButtonPressed() -> ()
+    
     func query(for name : String) -> ()
     
     func numberOfEvents() -> Int
@@ -42,6 +44,10 @@ final class EventSearchPresenter : EventSearchPresenterProtocol {
     private var tags : [Tag] = .init()
     
     private var events : [Event] = .init()
+    
+    public func cityButtonPressed() -> () {
+        self.router.presentCityPicker(delegate: self)
+    }
     
     public func query(for name: String) -> () {
         if name.isEmpty {
@@ -141,4 +147,12 @@ final class EventSearchPresenter : EventSearchPresenterProtocol {
         self.view = view
         self.router = router
     }
+}
+
+extension EventSearchPresenter : CityPickerDelegate {
+    
+    public func didPick(city: String) -> () {
+        self.pickedCity = city
+    }
+    
 }

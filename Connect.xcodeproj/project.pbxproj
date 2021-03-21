@@ -34,6 +34,10 @@
 		92B57E4B2606AB0B0023E04B /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B57E4A2606AB0B0023E04B /* TagCell.swift */; };
 		92B57E542606BF9A0023E04B /* SearchedEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B57E532606BF9A0023E04B /* SearchedEventCell.xib */; };
 		92B57E572606C0090023E04B /* SearchedEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B57E562606C0090023E04B /* SearchedEventCell.swift */; };
+		92B57E5F2606D1380023E04B /* CityPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B57E5E2606D1380023E04B /* CityPickerView.xib */; };
+		92B57E622606D2350023E04B /* CityPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B57E612606D2350023E04B /* CityPickerView.swift */; };
+		92B57E662606D2E90023E04B /* CityPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B57E652606D2E90023E04B /* CityPickerPresenter.swift */; };
+		92B57E6B2606D4DC0023E04B /* CityPickerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B57E6A2606D4DC0023E04B /* CityPickerBuilder.swift */; };
 		92D15F7726060C6C006A1A0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D15F7626060C6C006A1A0A /* AppDelegate.swift */; };
 		92D15F7926060C6C006A1A0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D15F7826060C6C006A1A0A /* SceneDelegate.swift */; };
 		92D15F7B26060C6C006A1A0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D15F7A26060C6C006A1A0A /* ViewController.swift */; };
@@ -81,6 +85,10 @@
 		92B57E4A2606AB0B0023E04B /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		92B57E532606BF9A0023E04B /* SearchedEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchedEventCell.xib; sourceTree = "<group>"; };
 		92B57E562606C0090023E04B /* SearchedEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedEventCell.swift; sourceTree = "<group>"; };
+		92B57E5E2606D1380023E04B /* CityPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityPickerView.xib; sourceTree = "<group>"; };
+		92B57E612606D2350023E04B /* CityPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerView.swift; sourceTree = "<group>"; };
+		92B57E652606D2E90023E04B /* CityPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerPresenter.swift; sourceTree = "<group>"; };
+		92B57E6A2606D4DC0023E04B /* CityPickerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerBuilder.swift; sourceTree = "<group>"; };
 		92D15F7326060C6C006A1A0A /* Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D15F7626060C6C006A1A0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92D15F7826060C6C006A1A0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -337,6 +345,41 @@
 			path = TagCell;
 			sourceTree = "<group>";
 		};
+		92B57E5B2606D11A0023E04B /* CityPickerModule */ = {
+			isa = PBXGroup;
+			children = (
+				92B57E692606D4D20023E04B /* Builder */,
+				92B57E642606D2DE0023E04B /* Presenter */,
+				92B57E5D2606D1290023E04B /* View */,
+			);
+			path = CityPickerModule;
+			sourceTree = "<group>";
+		};
+		92B57E5D2606D1290023E04B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				92B57E5E2606D1380023E04B /* CityPickerView.xib */,
+				92B57E612606D2350023E04B /* CityPickerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		92B57E642606D2DE0023E04B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				92B57E652606D2E90023E04B /* CityPickerPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		92B57E692606D4D20023E04B /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				92B57E6A2606D4DC0023E04B /* CityPickerBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		92D15F6A26060C6C006A1A0A = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +417,7 @@
 		92D15F94260611AF006A1A0A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				92B57E5B2606D11A0023E04B /* CityPickerModule */,
 				92B57E332606A5340023E04B /* EventSearchModule */,
 				9292BCAC260693A70004FBE4 /* EventDetailModule */,
 				92E18FF82606449D00E136ED /* EventMapModule */,
@@ -555,6 +599,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92D15F8326060C70006A1A0A /* LaunchScreen.storyboard in Resources */,
+				92B57E5F2606D1380023E04B /* CityPickerView.xib in Resources */,
 				9292BCB6260695CB0004FBE4 /* EventDetailCell.xib in Resources */,
 				92D15F8026060C70006A1A0A /* Assets.xcassets in Resources */,
 				9292BCAF260693CB0004FBE4 /* EventDetailView.xib in Resources */,
@@ -617,11 +662,13 @@
 			files = (
 				92B57E3C2606A93E0023E04B /* EventSearchPresenter.swift in Sources */,
 				92D15F7B26060C6C006A1A0A /* ViewController.swift in Sources */,
+				92B57E662606D2E90023E04B /* CityPickerPresenter.swift in Sources */,
 				9292BCB2260695800004FBE4 /* EventDetailView.swift in Sources */,
 				92B57E382606A8080023E04B /* EventSearchTableViewController.swift in Sources */,
 				92B57E4B2606AB0B0023E04B /* TagCell.swift in Sources */,
 				92B57E2D26069DA30023E04B /* ModalFactory.swift in Sources */,
 				9292BCA626067D200004FBE4 /* EventAnnotationView.swift in Sources */,
+				92B57E6B2606D4DC0023E04B /* CityPickerBuilder.swift in Sources */,
 				92B57E1F260696A60023E04B /* EventDetailCell.swift in Sources */,
 				92AE6FAA2606158A003677E2 /* SectionLayout.swift in Sources */,
 				92E1900026064D9900E136ED /* NetworkLayer.swift in Sources */,
@@ -636,6 +683,7 @@
 				92B57E3126069DDC0023E04B /* EventDetailBuilder.swift in Sources */,
 				92E18FF0260631E000E136ED /* SectionHeaderReusableView.swift in Sources */,
 				92D15F7726060C6C006A1A0A /* AppDelegate.swift in Sources */,
+				92B57E622606D2350023E04B /* CityPickerView.swift in Sources */,
 				92E1900426064DD700E136ED /* Event.swift in Sources */,
 				92E18FE72606297E00E136ED /* EventListBuilder.swift in Sources */,
 				92B57E572606C0090023E04B /* SearchedEventCell.swift in Sources */,
