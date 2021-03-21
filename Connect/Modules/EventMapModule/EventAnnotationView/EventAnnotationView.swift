@@ -33,14 +33,14 @@ final class EventAnnotationView : MGLAnnotationView {
         self.imageView.center = .init(x: 16, y: 16)
     }
     
-    required init(reuseIdentifier: String?, image: UIImage) {
+    required init(reuseIdentifier: String?, image: UIImage?) {
         super.init(reuseIdentifier: reuseIdentifier)
         
         self.clipsToBounds = true
         
         self.imageView = UIImageView()
         
-        self.imageView.image = image.withRenderingMode(.alwaysTemplate)
+        self.imageView.image = image?.withRenderingMode(.alwaysTemplate)
         self.imageView.contentMode = .scaleAspectFit
         
         self.imageView.tintColor = .white

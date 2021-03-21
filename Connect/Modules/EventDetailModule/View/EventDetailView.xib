@@ -41,6 +41,9 @@
                     <state key="normal" image="xmark.circle.fill" catalog="system">
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                     </state>
+                    <connections>
+                        <action selector="closeButtonPressed" destination="iN0-l3-epB" eventType="touchUpInside" id="s0G-wW-lHm"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yK1-NW-Tw8">
                     <rect key="frame" x="32" y="340" width="311" height="44"/>

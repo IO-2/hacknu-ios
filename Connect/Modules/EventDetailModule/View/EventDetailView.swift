@@ -19,6 +19,14 @@ final class EventDetailView : UIView, EventDetailViewProtocol {
     
     public var presenter : EventDetailPresenterProtocol!
     
+    @IBAction private func closeButtonPressed() -> () {
+        self.dismiss()
+    }
+    
+    @IBAction private func subscribeButtonPressed() -> () {
+        
+    }
+    
     public func prepare() -> () {
         self.tableView.delegate = self
         self.tableView.dataSource = self

@@ -88,7 +88,7 @@ extension EventMapViewController : MGLMapViewDelegate {
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
         
         if annotationView == nil {
-            annotationView = EventAnnotationView(reuseIdentifier: reuseIdentifier, image: UIImage(named: imageName)!)
+            annotationView = EventAnnotationView(reuseIdentifier: reuseIdentifier, image: UIImage(named: imageName))
             annotationView?.bounds = .init(origin: .zero, size: CGSize(width: 32, height: 32))
         }
         

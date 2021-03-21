@@ -21,7 +21,7 @@ final class LocationLayer : LocationLayerProtocol {
     private var locationManager : CLLocationManager
     
     public var current: CLLocationCoordinate2D {
-        return self.locationManager.location?.coordinate ?? .init()
+        return .init(latitude: 34.052235, longitude: -118.243683)//self.locationManager.location?.coordinate ?? .init()
     }
     
     public func address(at coordinate : CLLocationCoordinate2D, completion: @escaping (Result<String, NSError>) -> ()) -> () {
